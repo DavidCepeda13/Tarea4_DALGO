@@ -45,9 +45,9 @@ public class BFSAlgorithm{
         List<Node> salaEspera = new ArrayList<>();
         
         salaEspera.add(nodoInicial);
-
-        visitados.put(nodoInicial, true);
+        
         while(salaEspera.size()!=0){
+            visitados.put(salaEspera.get(0), true);
             Node revisando=salaEspera.get(0);
             salaEspera.remove(0);
     
