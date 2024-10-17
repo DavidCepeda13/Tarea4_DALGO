@@ -1,6 +1,6 @@
 package grafos;
 
-public class Node {
+public class Node implements Comparable<Node> {
 	private String value;
 	private int distance;
 	private Node predecessor;
@@ -41,5 +41,11 @@ public class Node {
 	@Override
 	public String toString() {
 		return this.value;
+	}
+
+	@Override
+	public int compareTo(Node o) {
+		// TODO Auto-generated method stub
+		return Integer.compare(this.distance, o.distance);
 	}
 }

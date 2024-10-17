@@ -9,7 +9,6 @@ import java.util.Map;
 public class Graph {
 	private Map<String, Node> nodes;
 	private List<Edge> edges;
-	private Map<Node, List<Edge>> adjList;
 	
 	public Graph() {
 		this.nodes = new HashMap<String, Node>();
@@ -46,9 +45,14 @@ public class Graph {
 		return graph;
 	}
 	
-	//< Return the list of edges of this >
+	//< Return the list of nodes of this >
 	public Collection<Node> nodes() {
 		return this.nodes.values();
+	}
+	
+	//< Return the list of the node values of this >
+	public Collection<String> nodeValues(){
+		return this.nodes.keySet();
 	}
 	
 	//< Return and remove the edge from this >

@@ -31,7 +31,7 @@ public class BellmanFordAlgorithm extends GraphAlgorithm{
 	
 	public Boolean BellmanFord(Graph graph, Node s) {
 		initialize(graph, s);
-		for (int i = 0; i < graph.nodes().size(); i++) {
+		for (int i = 0; i < graph.nodes().size() - 1; i++) {
 			for (Edge edge: graph.edges()) {
 				relax(edge);
 			}
