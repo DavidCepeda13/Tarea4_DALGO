@@ -13,6 +13,10 @@ public class Node {
 	public String getValue() {
 		return this.value;
 	}
+
+	public void setValue(String value) {
+		this.value=value;
+	}
 	
 	//< Return the accumulate distance of this >
 	public int d() {

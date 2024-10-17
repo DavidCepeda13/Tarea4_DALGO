@@ -65,6 +65,18 @@ public class Main {
 			case 3:
 				break;
 			case 4:
+				BFSAlgorithm bfs = new BFSAlgorithm();
+				List<List<String>> respuestas=bfs.componentesConectados(grafo);
+				String cadena="{{";
+				for (List<String> partes: respuestas){
+					for (String parte: partes) {
+						cadena+=parte+",";
+					}
+					cadena+="},";
+				}
+				String nuevaCadena = cadena.substring(0, cadena.length() - 1);
+				nuevaCadena+="}";
+				System.out.println(nuevaCadena);
 				break;
 			case 5:
 				break;
