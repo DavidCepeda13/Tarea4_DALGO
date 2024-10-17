@@ -43,11 +43,13 @@ public class DijkstraAlgorithm extends GraphAlgorithm{
 		PriorityQueue<Node> Q = new PriorityQueue<Node>(graph.nodes());
 		while (!Q.isEmpty()) {
 			Node u = Q.poll();
-			for (Edge edge: adjList.get(u)) {
-				Node v = edge.nodeV();
-				if (relax(edge)) {
-					Q.remove(v);
-					Q.add(v);
+			if (adjList.get(u) != null) {
+				for (Edge edge: adjList.get(u)) {
+					Node v = edge.nodeV();
+					if (relax(edge)) {
+						Q.remove(v);
+						Q.add(v);
+					}
 				}
 			}
 		}
