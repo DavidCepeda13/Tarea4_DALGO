@@ -21,6 +21,7 @@ public class Main {
 			String line = in.readLine();
 			for (int i=0;line != null;i++) {
 				try {
+					System.out.println(line);
 					String[] values = line.split(" ");
 					if (!grafo.hasNode(values[0])) grafo.addNode(new Node(values[0]));
 					if (!grafo.hasNode(values[1])) grafo.addNode(new Node(values[1]));
@@ -40,6 +41,7 @@ public class Main {
 	
 	public void selector(Graph grafo) {
 		Boolean state = true;
+		GraphAlgorithm algorithm;
 		while (state){
 			String value = input("Ingrese la opción que desea ejecutar: \n"
 					+ "> 1. Dijkstra\n"
@@ -52,9 +54,16 @@ public class Main {
 			int opcion = Integer.valueOf(value);
 			switch (opcion) {
 			case 1:
+				algorithm = new DijkstraAlgorithm();
+				for (int[] fila: algorithm.algorithm(grafo)) {
+					for (int columna: fila) {
+						System.out.print(String.valueOf(columna)+"\t");
+					}
+					System.out.println();
+				}
 				break;
 			case 2:
-				BellmanFordAlgorithm algorithm = new BellmanFordAlgorithm();
+				algorithm = new BellmanFordAlgorithm();
 				for (int[] fila: algorithm.algorithm(grafo)) {
 					for (int columna: fila) {
 						System.out.print(String.valueOf(columna)+"\t");
@@ -63,6 +72,13 @@ public class Main {
 				}
 				break;
 			case 3:
+				algorithm = new FloydWarshallAlgorithm();
+				for (int[] fila: algorithm.algorithm(grafo)) {
+					for (int columna: fila) {
+						System.out.print(String.valueOf(columna)+"\t");
+					}
+					System.out.println();
+				}
 				break;
 			case 4:
 				break;

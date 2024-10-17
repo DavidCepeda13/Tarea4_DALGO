@@ -16,14 +16,16 @@ public abstract class GraphAlgorithm {
 		origin.d(0);
 	}
 	
-	public void relax(Edge edge) {
+	public Boolean relax(Edge edge) {
 		if (edge.nodeV().d() > edge.nodeU().d() + edge.edgeWeight()) {
 			edge.nodeV().d(edge.nodeU().d() + edge.edgeWeight());
 			edge.nodeV().p(edge.nodeU());
+			return true;
 		}
+		return false;
 	}
 	
-	private int maxWeight(Graph graph) {
+	public int maxWeight(Graph graph) {
 		int max = Integer.MIN_VALUE;
 		for (Edge edge: graph.edges()) {
 			if (edge.edgeWeight() > max) max = edge.edgeWeight();
